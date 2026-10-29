@@ -1,0 +1,12 @@
+/**
+ * Module: Links
+ */
+
+@use "../partials/1-variables" as *;
+@use "../partials/2-mixins" as *;
+
+.module-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-s);
+}

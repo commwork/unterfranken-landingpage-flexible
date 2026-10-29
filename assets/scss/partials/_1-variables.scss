@@ -1,0 +1,40 @@
+// Fonts
+$font : "FagoCo", sans-serif;
+
+// Colors
+$primary : #E3001B;
+$secondary : #540000;
+$secondary-light : #a59999;	
+$tertiary : #9fb1ac;
+$tertiary-light : #b3c9c4;
+$white : #ffffff;
+$black : #000000;
+$grey : #cdcdcd;
+$grey-dark : #999;
+$grey-even-darker : #666;
+
+// Border width
+$border-width-m : 1px;
+$border-width-l : 2px;
+
+// Radius
+:root {
+	--radius-m : 4px;
+}
+@media (min-width: 768px) {
+	:root {
+		--radius-m: 6px;
+	}
+}
+
+// Spacing
+:root {
+	--spacing-xs: 6px;
+	--spacing-s: 12px;
+	--spacing-sm: 16px;
+	--spacing-md: 20px;
+	--spacing-l: 35px;
+	--spacing-xl: 50px;
+	--spacing-xxl: 70px;
+	--spacing-xxxl: 100px;
+}

@@ -1,0 +1,187 @@
+@use "1-variables" as *;
+@use "2-mixins" as *;
+
+// Skip link (WCAG 2.4.1, 2.4.11 – high z-index so focus not obscured)
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 99999;
+    padding: 1rem 1.5rem;
+    background: $secondary;
+    color: $white;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-m);
+
+    &:focus {
+        left: var(--spacing-md);
+        top: var(--spacing-md);
+    }
+}
+
+// Focus styles (WCAG 2.2 – visible, not obscured)
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+    outline: 3px solid $black;
+    outline-offset: 3px;
+}
+
+// Links – use secondary for contrast (WCAG 1.4.3)
+a {
+    color: $secondary;
+    text-decoration: underline;
+    text-decoration-color: $secondary;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    transition: all 0.3s ease;
+
+    &:hover {
+        text-decoration: none;
+        color: $primary;
+        text-decoration-color: $primary;
+    }
+}
+
+// Buttons (WCAG 2.5.8 – target size min 24×24)
+.btn {
+    min-height: 24px;
+    min-width: 24px;
+
+    // External / new-tab links
+    &[target="_blank"]::after {
+        content: '';
+        flex-shrink: 0;
+        display: block;
+        width: 1.25em;
+        height: 1.25em;
+        background-color: currentColor;
+        -webkit-mask-image: url("assets/icons/20px/link-square-01-stroke-rounded.svg");
+        mask-image: url("assets/icons/20px/link-square-01-stroke-rounded.svg");
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+    }
+    
+    &.btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $primary;
+        color: $white;
+        font-weight: 600;
+        border-color: $primary;
+        padding: 12px 20px;
+        min-height: 44px;
+        border-radius: var(--radius-m);
+        text-decoration: none;
+        gap: 10px;
+        transition: all 0.3s ease;
+        width: fit-content;
+
+        &.btn-icon-arrow-right {
+            &::after {
+                content: '';
+                width: 16px;
+                height: 16px;
+                background-image: url("data:image/svg+xml,%3Csvg width='13' height='13' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.5 6.33333H12.1667M12.1667 6.33333L6.33333 0.5M12.1667 6.33333L6.33333 12.1667' stroke='white' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+
+        &.btn-icon-pin {
+            &::after {
+                content: '';
+                width: 16px;
+                height: 16px;
+                background-image: url("assets/icons/20px/map-pinned-stroke-rounded.svg");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                filter: invert(1);
+            }
+        }
+
+        &.btn-icon-mail {
+            &::after {
+                content: '';
+                width: 1.25em;
+                height: 1.25em;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.25' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-mail-icon lucide-mail'%3E%3Cpath d='m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7'/%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3C/svg%3E");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+
+        &:hover {
+            background-color: $secondary;
+        }
+    }
+
+    &.btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        color: $secondary;
+        font-weight: 600;
+        border: $border-width-l solid $secondary;
+        padding: 12px 20px;
+        min-height: 44px;
+        border-radius: var(--radius-m);
+        text-decoration: none;
+        gap: 10px;
+        transition: all 0.3s ease;
+        width: fit-content;
+
+        &.btn-icon-arrow-right {
+            &::after {
+                content: '';
+                flex-shrink: 0;
+                display: block;
+                width: 1.5em;
+                height: 1.5em;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23540000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.5 12H5'/%3E%3Cpath d='M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6'/%3E%3C/svg%3E");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+
+        &.btn-icon-arrow-down {
+            &::after {
+                content: '';
+                flex-shrink: 0;
+                display: block;
+                width: 1.5em;
+                height: 1.5em;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23540000' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 18.502V5.00195'/%3E%3Cpath d='M18 13.002C18 13.002 13.5811 19.0019 12 19.002C10.4188 19.002 6 13.002 6 13.002'/%3E%3C/svg%3E");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+
+        &:hover {
+            background-color: $secondary;
+            color: $white;
+
+            &.btn-icon-arrow-right::after {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M18.5 12H5'/%3E%3Cpath d='M13 18C13 18 19 13.5811 19 12C19 10.4188 13 6 13 6'/%3E%3C/svg%3E");
+            }
+
+            &.btn-icon-arrow-down::after {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 18.502V5.00195'/%3E%3Cpath d='M18 13.002C18 13.002 13.5811 19.0019 12 19.002C10.4188 19.002 6 13.002 6 13.002'/%3E%3C/svg%3E");
+            }
+        }
+    }
+}

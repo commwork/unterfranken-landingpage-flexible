@@ -1,0 +1,51 @@
+<div class="form-wrapper content-box--medium">
+    <div class="row g-3">
+        <div class="col-12 col-lg-4">
+            <label> Dein Vorname
+                [text* your-first-name autocomplete:given-name] </label>
+        </div>
+
+        <div class="col-12 col-lg-4">
+            <label> Dein Nachname
+                [text* your-last-name autocomplete:family-name] </label>
+        </div>
+
+        <div class="col-12 col-lg-4">
+            <label> Deine Einrichtung
+                [text* your-institution autocomplete:organization] </label>
+        </div>
+
+        <div class="col-12">
+            <span class="field-label">Teilnahme</span>
+            [acceptance bin-dabei] Ich nehme am Willkommenstag teil.[/acceptance]
+        </div>
+    </div>   
+
+    <div class="privacy-notice">
+        <p>
+            Mit dem Absenden verarbeiten wir deine Angaben zur Bearbeitung deiner Anmeldung für den Willkommenstag.
+            Weitere Informationen findest du in unserer <a href="./datenschutzerklaerung-awo-karlsruhe/">Datenschutzerklärung</a>.
+        </p>
+    </div>
+
+    <div class="submit-wrapper">
+        [submit "Ich bin dabei!"]
+    </div>
+</div>
+
+---
+An: jobs@awo-karlsruhe.de
+---
+
+---
+Von: [your-first-name] [your-last-name]
+Betreff: Willkommenstag Karlsruhe
+
+<strong>Vorname:</strong> [your-first-name]
+<strong>Nachname:</strong> [your-last-name]
+<strong>Einrichtung:</strong> [your-institution]
+<strong>Teilnahme:</strong> [bin-dabei]
+
+-- 
+Dies ist eine Benachrichtigung, dass ein Kontaktformular von deiner Website gesendet wurde ([_site_title] [_site_url]).
+---

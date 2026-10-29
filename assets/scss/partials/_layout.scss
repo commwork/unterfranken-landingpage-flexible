@@ -1,0 +1,135 @@
+@use "1-variables" as *;
+@use "2-mixins" as *;
+
+.section {
+    padding: 50px 15px;
+    // border: 1px solid red;
+    
+    @include md-up {
+        padding: var(--spacing-xxxl) 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    + .section {
+        margin-top: 8px;
+    }
+}
+
+.home-section-1 {
+    margin-top: 5rem;
+
+    h1,
+    h1 + p {
+        color: white;
+    }
+
+    .fyh-signage {
+        display: block;
+        width: 120px;
+        max-width: 120px;
+        min-width: 0;
+        height: auto;
+
+        @include xl-up {
+            width: 160px;
+            max-width: 160px;
+        }
+    }
+
+    @include md-up {
+        margin-top: 6rem;
+    }
+
+    background: $tertiary;
+    background-image: url("assets/images/pille-2.svg");
+    background-repeat: no-repeat;
+    background-position: right -5vw bottom -250px;
+
+    @media (max-width: 1400px) { 
+        background-position: right -4vw bottom -250px;
+    }
+
+    @media (max-width: 1200px) { 
+        background-position: right -12vw bottom -250px;
+    }
+
+    @media (max-width: 1100px) { 
+        background-position: right -15vw bottom -250px;
+    }
+
+    @media (max-width: 768px) { 
+        background-position: right -50vw bottom -250px;
+    }
+}
+
+.section-bg-tertiary {
+    background-color: $tertiary;
+}
+
+.section-bg-tertiary-light {
+    background-color: $tertiary-light;
+}
+
+.content-box {
+    > * {
+        &:not(:last-child) {
+            margin-bottom: var(--spacing-l);
+        }
+
+        &.subheadline {
+            margin-bottom: var(--spacing-s);
+            display: inline-block;
+        }
+    }
+
+    &--medium {
+        > * {
+            &:not(:last-child) {
+                margin-bottom: var(--spacing-md);
+            }
+        }
+
+        &.subheadline {
+            margin-bottom: var(--spacing-xs);
+            display: inline-block;
+        }
+    }
+}
+
+.program-table {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: $white;
+    padding: var(--spacing-l);
+    border-radius: var(--radius-m);
+    border: 1px solid $secondary-light;
+
+    > p {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-s);
+
+        .program-table-time {
+            text-align: left;
+            font-weight: 700;
+            color: $secondary;
+        }
+    
+        .program-table-item {
+            text-align: right;
+            margin-left: auto;
+        }
+
+        + p {
+            margin-top: var(--spacing-s);
+            padding-top: var(--spacing-s);
+            position: relative;
+            border-top: 1px solid $secondary;
+        }
+    }
+}

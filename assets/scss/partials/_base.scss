@@ -1,0 +1,108 @@
+@use "1-variables" as *;
+@use "2-mixins" as *;
+
+html, body {
+    height: 100%;
+    background-color: $white;
+}
+
+#main-content,
+[id] {
+    scroll-margin-top: calc(var(--spacing-xxl) + 1rem);
+}
+
+/* WCAG 2.3.3 – respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    [data-aos] {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+img, svg {
+    min-width: 100%;
+    height: auto;
+}
+
+h1 {
+    color: $secondary;
+}
+
+.ul-checker,
+.wp-block-list {
+    list-style: none;
+    padding-left: 0;
+    position: relative;
+    
+    li {
+        position: relative;
+        padding-left: 1.8em;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            left: -.2em;
+            top: 0.05em;
+            display: block;
+            width: 1.5em;
+            height: 1.5em;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23E3001B' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 13.2592L7.58583 15.9568C8.2525 16.6523 8.58583 17.0001 9.00004 17.0001C9.41425 17.0001 9.74759 16.6523 10.4143 15.9568L19 7.00006'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        + li {
+            margin-top: var(--spacing-s);
+        }
+    }
+
+    // Center each item; icons stay at that line’s text start
+    &.ul-checker-centered {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        li {
+            width: fit-content;
+            text-align: left;
+        }
+
+        @include sm-down {
+            align-items: flex-start;
+        }
+    }
+}
+
+// Text – inline image, same size as surrounding text
+.uflp-text {
+    width: auto;
+    height: .8em;
+    display: inline-block;
+    min-width: auto !important;
+    vertical-align: top;
+    margin-top: .29em;
+    margin-left: 0.175em;
+    margin-right: 0.175em;
+
+    &.uflp-text-last {
+        margin-right: 0;
+    }
+
+    &.uflp-text-small {
+        margin-top: .37em;
+    }
+
+    &.uflp-text-h2 {
+        margin-top: .19em;
+    }
+}
+
+// Regular pages without a template
+.page-template-default {
+    > .header-section {
+        + .section {
+            margin-top: 4rem;
+        }
+    }
+}

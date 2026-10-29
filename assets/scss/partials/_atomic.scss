@@ -1,0 +1,115 @@
+@use "1-variables" as *;
+@use "2-mixins" as *;
+
+/* colors */
+.color-primary {
+    color: $primary;
+}
+
+.color-secondary {
+    color: $secondary;
+}
+
+.color-white {
+    color: $white;
+}
+
+.color-black {
+    color: $black;
+}
+
+.color-grey {
+    color: $grey;
+}
+
+/* spacing */
+.mtop-0 {
+    margin-top: 0;
+}
+
+.mbottom-0 {
+    margin-bottom: 0;
+}
+
+.ptop-0 {
+    padding-top: 0;
+}
+
+.pbottom-0 {
+    padding-bottom: 0;
+}
+
+// row
+.row-gap-l {
+    row-gap: var(--spacing-l);
+}
+
+// column
+.column-gap-l {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-l);
+}
+
+.column-gap-md {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* align */
+// flex
+.flex-center-x {
+    display: flex;
+    align-items: center;
+}
+
+// text
+.text-align-center {
+    text-align: center;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.nobr {
+    white-space: nowrap;
+}
+
+/* radius */
+.radius-m {
+    border-radius: var(--radius-m);
+}
+
+/* images */
+.img-wrap-1-1 {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+// hr
+
+
+hr {
+    border: none;
+    border-top: 3px solid $grey; /* Ersetzen Sie dies durch Ihr gewünschtes Design */
+    margin: 1em 0;
+    height: 0;
+    box-sizing: content-box;
+
+    &.hr-primary {
+        border-color: $primary;
+    }
+}

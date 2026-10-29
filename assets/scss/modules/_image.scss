@@ -1,0 +1,27 @@
+/**
+ * Module: Bild
+ */
+
+@use "../partials/1-variables" as *;
+@use "../partials/2-mixins" as *;
+
+figure.img-wrap-1-1,
+.module-image {
+    figcaption {
+        margin-top: var(--spacing-xs);
+        font-size: 0.875em;
+        color: $grey-even-darker;
+    }
+}
+
+.module-image--svg {
+    width: 100%;
+
+    img {
+        width: 100%;
+        height: auto;
+        min-width: 0;
+        object-fit: contain;
+        display: block;
+    }
+}

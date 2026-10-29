@@ -1,0 +1,31 @@
+/**
+ * /////////////////////////////////////////////////
+ *  Template: Startseite Flexiteam
+ * /////////////////////////////////////////////////
+ */
+
+@use "1-variables" as *;
+@use "typography" as *;
+@use "2-mixins" as *;
+
+// Editor helper: show block number when logged in
+body.logged-in .section[data-block-index] {
+    position: relative;
+
+    &::before {
+        content: "Block " attr(data-block-index);
+        position: absolute;
+        top: 0.75rem;
+        left: 0.75rem;
+        z-index: 5;
+        padding: 0.25rem 0.5rem;
+        border-radius: var(--radius-m);
+        background-color: #373737;
+        color: $white;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 0.75rem;
+        font-weight: 600;
+        line-height: 1.2;
+        pointer-events: none;
+    }
+}

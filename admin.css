@@ -1,0 +1,170 @@
+@charset "UTF-8";
+/**
+ * /////////////////////////////////////////////////
+ *  WordPress Admin – Theme styles
+ * /////////////////////////////////////////////////
+ */
+:root {
+  --radius-m: 4px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --radius-m: 6px;
+  }
+}
+:root {
+  --spacing-xs: 6px;
+  --spacing-s: 12px;
+  --spacing-sm: 16px;
+  --spacing-md: 20px;
+  --spacing-l: 35px;
+  --spacing-xl: 50px;
+  --spacing-xxl: 70px;
+  --spacing-xxxl: 100px;
+}
+
+/* ************** WP General ************** */
+#titlewrap input {
+  padding: 1.4em 12px !important;
+}
+
+#dashboard_site_health .inside .health-check-widget {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: minmax(64px, auto);
+  column-gap: 16px;
+  align-items: start;
+  text-align: left;
+}
+#dashboard_site_health .inside .health-check-widget .site-health-details {
+  padding-left: 0;
+  text-align: left;
+}
+
+#wpadminbar #wp-admin-bar-wp-logo {
+  display: none;
+}
+
+#adminmenu .wp-submenu-wrap * {
+  font-size: 12px !important;
+}
+
+#submitdiv #submitpost #minor-publishing #minor-publishing-actions #preview-action > a {
+  width: 100%;
+  margin-top: 7px;
+}
+#submitdiv #submitpost #minor-publishing #minor-publishing-actions #save-action #save-post {
+  width: 100%;
+}
+#submitdiv #submitpost #minor-publishing #minor-publishing-actions #save-action .spinner {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+#submitdiv #submitpost #misc-publishing-actions {
+  padding: 10px 0 10px;
+}
+#submitdiv #submitpost #misc-publishing-actions .misc-pub-section {
+  padding: 4px 10px 4px;
+}
+#submitdiv #submitpost #misc-publishing-actions .misc-pub-section::before {
+  display: none;
+}
+#submitdiv #submitpost #misc-publishing-actions .misc-pub-section #timestamp::before {
+  display: none;
+}
+#submitdiv #submitpost #misc-publishing-actions * {
+  font-size: 12px !important;
+}
+#submitdiv #submitpost #major-publishing-actions {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row-reverse;
+}
+#submitdiv #submitpost #major-publishing-actions #delete-action {
+  width: 40px;
+  height: auto;
+  margin-left: 3px;
+}
+#submitdiv #submitpost #major-publishing-actions #delete-action a.submitdelete {
+  display: block;
+  position: relative;
+  border-radius: 3px;
+  height: 100%;
+  background-color: #de658d;
+  text-indent: -9999px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+#submitdiv #submitpost #major-publishing-actions #delete-action a.submitdelete::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  -webkit-mask-image: url("assets/icons/20px/delete-02-stroke-rounded.svg");
+  mask-image: url("assets/icons/20px/delete-02-stroke-rounded.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  pointer-events: none;
+}
+#submitdiv #submitpost #major-publishing-actions #delete-action a.submitdelete:hover {
+  background-color: #a4385c;
+}
+#submitdiv #submitpost #major-publishing-actions #publishing-action {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+#submitdiv #submitpost #major-publishing-actions #publishing-action .spinner {
+  position: absolute;
+  left: 10px;
+  right: auto;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+#submitdiv #submitpost #major-publishing-actions #publishing-action #publish {
+  width: 100%;
+}
+
+#pageparentdiv .inside * {
+  display: block !important;
+  width: 100% !important;
+}
+#pageparentdiv .inside .menu-order-label-wrapper {
+  display: none !important;
+}
+#pageparentdiv .inside .menu-order-label-wrapper + input {
+  display: none !important;
+}
+
+#wpfooter #footer-left {
+  display: none !important;
+}
+
+/* ************** ACF ************** */
+.acf-tooltip.acf-fc-popup ul {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+.acf-tooltip.acf-fc-popup ul li {
+  height: auto;
+}
+.acf-tooltip.acf-fc-popup ul li a {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+/*# sourceMappingURL=admin.css.map */

@@ -1,0 +1,38 @@
+/**!
+Theme Name: Unterfranken Landingpage
+Description: Unterfranken Landingpage WordPress Theme
+Version: 2
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: uflp
+*/
+
+// @use rules must come before @import rules
+@use "partials/1-variables" as *;
+@use "partials/2-mixins" as *;
+
+@use "partials/fonts" as *;
+@use "partials/cssreset" as *;
+@use "partials/reset" as *;
+@use "partials/bootstrap" as *;
+@use "partials/base" as *;
+@use "partials/links" as *;
+@use "partials/typography" as *;
+@use "partials/layout" as *;
+@use "partials/header" as *;
+@use "partials/atomic" as *;
+@use "partials/swiper" as *;
+
+@use "partials/footer" as *;
+@use "partials/forms" as *;
+@use "partials/karlsruhe" as *;
+@use "partials/flexiteam" as *;
+
+// Modules
+@use "modules/module-headline" as *;
+@use "modules/text" as *;
+@use "modules/intro-text" as *;
+@use "modules/image" as *;
+@use "modules/accordion" as *;
+@use "modules/links" as *;
+@use "modules/benefits" as *;

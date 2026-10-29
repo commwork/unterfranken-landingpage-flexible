@@ -1,0 +1,111 @@
+/**
+ * Module: Accordion
+ */
+
+@use "../partials/1-variables" as *;
+@use "../partials/typography" as *;
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.accordion-item {
+    border-bottom: 1px solid $secondary;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &:first-child {
+        .accordion-item-title {
+            padding-top: 0;
+        }
+    }
+}
+
+.accordion-item-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 0 1rem;
+    min-height: 44px;
+    background: none;
+    border: none;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.2s;
+    color: $secondary;
+    font-weight: 600;
+    font-size: $font-size-lead;
+
+    &:hover {
+        color: $primary;
+    }
+}
+
+.accordion-icon {
+    position: relative;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+    width: 1.15em;
+    height: 1.15em;
+}
+
+.accordion-icon-plus,
+.accordion-icon-minus {
+    position: absolute;
+    inset: 0;
+    background-color: currentColor;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    transition: opacity 0.2s;
+}
+
+.accordion-icon-plus {
+    opacity: 1;
+    -webkit-mask-image: url("assets/icons/32px/add-circle-stroke-rounded.svg");
+    mask-image: url("assets/icons/32px/add-circle-stroke-rounded.svg");
+}
+
+.accordion-icon-minus {
+    opacity: 0;
+    -webkit-mask-image: url("assets/icons/32px/remove-circle-stroke-rounded.svg");
+    mask-image: url("assets/icons/32px/remove-circle-stroke-rounded.svg");
+}
+
+.accordion-item.is-open .accordion-icon-plus {
+    opacity: 0;
+}
+
+.accordion-item.is-open .accordion-icon-minus {
+    opacity: 1;
+}
+
+.accordion-item-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease-out;
+    overflow: hidden;
+
+    > * {
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.accordion-item.is-open .accordion-item-content {
+    grid-template-rows: 1fr;
+    padding-bottom: var(--spacing-md);
+}

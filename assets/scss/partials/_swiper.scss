@@ -1,0 +1,74 @@
+@use "1-variables" as *;
+@use "2-mixins" as *;
+
+// Fade slider – only active slide visible, active on top
+.swiper-fade {
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    border-radius: var(--radius-m);
+
+    .swiper-slide {
+        opacity: 0;
+        pointer-events: none;
+    }
+    .swiper-slide-active {
+        opacity: 1;
+        z-index: 1;
+        pointer-events: auto;
+    }
+    .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .swiper-pagination {
+        padding-left: var(--spacing-md);
+        top: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: var(--spacing-xs);
+
+        .swiper-pagination-bullet { 
+            background-color: $white; 
+            opacity: 1; 
+            width: 18px; 
+            height: 18px;
+
+            &-active { 
+                border: 5px solid $primary; 
+            }
+        }
+    }
+}
+
+// Campaign slider – vertical Swiper (square on all screens)
+.swiper-vertical {
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    border-radius: var(--radius-m);
+
+    .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .swiper-pagination {
+        left: var(--spacing-md);
+        right: auto;
+
+        .swiper-pagination-bullet {
+            background-color: $white;
+            opacity: 1;
+            width: 18px;
+            height: 18px;
+        }
+
+        .swiper-pagination-bullet-active {
+            border: 5px solid $primary;
+        }
+    }
+}

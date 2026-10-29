@@ -1,0 +1,117 @@
+/**
+ * /////////////////////////////////////////////////
+ *  Template: Startseite Karlsruhe
+ * /////////////////////////////////////////////////
+ */
+
+@use "1-variables" as *;
+@use "2-mixins" as *;
+
+.page-template-tpl-home-karlsruhe {
+    /* Colors */
+    $karlsruhe-color-1: #f69274;
+    $karlsruhe-color-1b: #feb97a;
+    $karlsruhe-color-2: #907791;
+    $karlsruhe-color-2b: #475e86;
+
+    $karlsruhe-gradient: linear-gradient(
+        to bottom,
+        $karlsruhe-color-1b,
+        $karlsruhe-color-1,
+        $karlsruhe-color-2,
+        $karlsruhe-color-2b
+    );
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a,
+    * {
+        color: $karlsruhe-color-2b;
+    }
+
+    .btn.btn-primary {
+        background: $karlsruhe-color-2b;
+        border-color: $karlsruhe-color-2b;
+
+        &:hover {
+            background: $karlsruhe-color-2;
+            border-color: $karlsruhe-color-2;
+        }
+    }
+
+    .ul-checker {       
+        li {           
+            &::before {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475e86' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 13.2592L7.58583 15.9568C8.2525 16.6523 8.58583 17.0001 9.00004 17.0001C9.41425 17.0001 9.74759 16.6523 10.4143 15.9568L19 7.00006'/%3E%3C/svg%3E");
+            }
+        }
+    }
+
+    #cw-cc-banner-desc {
+        color: $white;
+
+        * {
+            color: $white;
+        }
+    }
+
+    .cw-cc-banner__btn--accept-all {
+        color: $white;
+    }
+
+    .cw-cc-banner__label span,
+    .cw-cc-banner__option-desc {
+        color: $white !important;
+    }
+
+    .section {
+        &.home-section-1 {
+            background: $karlsruhe-gradient;
+
+            h1,
+            strong,
+            p {
+                color: $white;
+            }
+
+            a {
+                color: $white;
+                text-decoration-color: $white;
+            }
+        }
+
+        &.home-section-3 {
+            h2,
+            p,
+            a:not(.btn),
+            .program-table-time {
+                color: $karlsruhe-color-2b;
+            }
+
+            .program-table > p + p {
+                border-top: 1px solid $karlsruhe-color-2b;
+            }
+        }
+
+        &.home-section-4.section-bg-tertiary-light {
+            background: $karlsruhe-gradient;
+
+            h2,
+            strong,
+            p,
+            a {
+                color: $white;
+            }
+
+            a {
+                color: $white;
+                text-decoration-color: $white;
+            }
+        }
+    }
+}
