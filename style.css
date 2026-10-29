@@ -1864,7 +1864,7 @@ Text Domain: uflp
  */
 .module-benefits {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(max(220px, (100% - 2 * var(--spacing-md)) / 3), 1fr));
   gap: var(--spacing-md);
   width: 100%;
 }
