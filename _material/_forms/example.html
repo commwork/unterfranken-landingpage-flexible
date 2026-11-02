@@ -1,0 +1,41 @@
+<div class="form-wrapper content-box--medium">
+    <div class="row g-3">
+        <div class="col-12 col-lg-6">
+            <label> Dein Vorname
+                [text* your-first-name autocomplete:given-name] </label>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <label> Dein Nachname
+                [text* your-last-name autocomplete:family-name] </label>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <label> Deine Einrichtung
+                [text* your-institution autocomplete:organization] </label>
+        </div>
+
+        <div class="col-12 col-lg-6">
+            <label> Deine E-Mail-Adresse (optional)
+                [email your-email autocomplete:email] </label>
+        </div>
+
+        <div class="col-12">
+            <span class="field-label">Radio Button</span>
+            [radio radio_test use_label_element "Radio Option 1" "Radio Option 2" "Radio Option 3"]
+        </div>
+    </div>   
+
+    <label> Besondere Hinweise
+        [textarea your-message] </label>
+
+    <div class="privacy-notice">
+        <p>
+            Legal info. <br> Weitere Informationen findest du in unserer <a href="./datenschutzerklaerung/">Datenschutzerklärung</a>.
+        </p>
+    </div>
+
+    <div class="submit-wrapper">
+        [submit "Absenden"]
+    </div>
+</div>

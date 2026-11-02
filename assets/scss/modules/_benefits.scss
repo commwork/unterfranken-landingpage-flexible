@@ -7,9 +7,13 @@
 
 .module-benefits {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(max(220px, calc((100% - 2 * var(--spacing-md)) / 3)), 1fr));
+    grid-template-columns: 1fr;
     gap: var(--spacing-md);
     width: 100%;
+
+    @include md-up {
+        grid-template-columns: repeat(auto-fit, minmax(max(220px, calc((100% - 2 * var(--spacing-md)) / 3)), 1fr));
+    }
 }
 
 .module-benefits-item {
@@ -28,8 +32,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
     flex-shrink: 0;
     margin-bottom: var(--spacing-s);
 

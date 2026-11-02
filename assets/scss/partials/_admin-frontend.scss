@@ -1,0 +1,81 @@
+/**
+ * Frontend admin UI (logged-in only).
+ * Markup: footer.php · behavior: assets/js/app.js
+ */
+
+@use "sass:list";
+
+.section-admin-toggle {
+	position: fixed;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 0.5rem;
+	bottom: 10px;
+	right: 10px;
+	left: auto;
+	line-height: 1;
+	z-index: 9999;
+	width: auto;
+	color: #fff;
+	background: #23282d !important;
+	border-radius: 8px !important;
+	padding: 0.4rem 0.4rem !important;
+}
+
+.btn-toggle-headline-view {
+	appearance: none;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	cursor: pointer;
+	font: inherit;
+	line-height: 1.2;
+	padding: 0.35rem 0.55rem;
+	border-radius: 3px;
+	font-size: 14px !important;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+	&[aria-pressed="true"] {
+		background: #484848;
+		color: #fff;
+	}
+}
+
+$headline-view-colors: #d3005f, #d35400, #b7950b, #1e8449, #2471a3, #6c3483;
+
+body.is-headline-view-active {
+	@for $level from 1 through 6 {
+		h#{$level} {
+			&::before {
+				content: "H#{$level}";
+				display: inline-block;
+				position: relative;
+				top: -.3em;
+				margin-right: 8px;
+				padding: 0.5rem 0.7rem;
+				font-size: 1rem;
+				font-weight: 500;
+				line-height: 1.2;
+				letter-spacing: 0.04em;
+				vertical-align: middle;
+				color: #fff;
+				background: list.nth($headline-view-colors, $level);
+				border-radius: 8px;
+				font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+				text-transform: uppercase;
+				pointer-events: none;
+			}
+		}
+	}
+}
+
+#wpadminbar,
+.section-admin-toggle {
+	h1, h2, h3, h4, h5, h6 {
+		&::before {
+			content: none !important;
+		}
+	}
+}

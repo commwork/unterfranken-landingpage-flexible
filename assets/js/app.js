@@ -64,4 +64,27 @@ document.addEventListener('DOMContentLoaded', function() {
         const isOpen = item.classList.toggle('is-open');
         trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
+
+    const headlineToggle = document.querySelector('.btn-toggle-headline-view');
+    if (headlineToggle) {
+        const storageKey = 'uflp-headline-view';
+
+        const setHeadlineView = function(active) {
+            document.body.classList.toggle('is-headline-view-active', active);
+            headlineToggle.setAttribute('aria-pressed', active ? 'true' : 'false');
+            try {
+                sessionStorage.setItem(storageKey, active ? '1' : '0');
+            } catch (error) {}
+        };
+
+        try {
+            if (sessionStorage.getItem(storageKey) === '1') {
+                setHeadlineView(true);
+            }
+        } catch (error) {}
+
+        headlineToggle.addEventListener('click', function() {
+            setHeadlineView(!document.body.classList.contains('is-headline-view-active'));
+        });
+    }
 });

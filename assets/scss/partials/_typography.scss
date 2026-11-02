@@ -179,30 +179,30 @@ strong {
 		margin-bottom: var(--spacing-sm);
 	}
 
-	ul {
-		list-style: none;
-		padding-left: 0;
-		position: relative;
+	// ul {
+	// 	list-style: none;
+	// 	padding-left: 0;
+	// 	position: relative;
 		
-		li {
-			position: relative;
-			padding-left: 1.2em;
+	// 	li {
+	// 		position: relative;
+	// 		padding-left: 1.2em;
 			
-			&::before {
-				content: '';
-				position: absolute;
-				left: 0;
-				top: 0.65em;
-				display: block;
-				width: 0.5em;
-				height: 0.5em;
-				border-radius: 50%;
-				background-color: $secondary;
-			}
+	// 		&::before {
+	// 			content: '';
+	// 			position: absolute;
+	// 			left: 0;
+	// 			top: 0.65em;
+	// 			display: block;
+	// 			width: 0.5em;
+	// 			height: 0.5em;
+	// 			border-radius: 50%;
+	// 			background-color: $secondary;
+	// 		}
 
-			+ li {
-				margin-top: var(--spacing-s);
-			}
-		}
-	}
+	// 		+ li {
+	// 			margin-top: var(--spacing-s);
+	// 		}
+	// 	}
+	// }
 }

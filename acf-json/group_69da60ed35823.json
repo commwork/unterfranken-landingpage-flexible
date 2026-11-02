@@ -160,6 +160,37 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_6ae8728b4cbc6": {
+                    "key": "layout_6ae8728b4cbc6",
+                    "name": "form",
+                    "label": "Formular",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6ae8728b4cbc7",
+                            "label": "Formular Shortcode",
+                            "name": "form_shortcode",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Den Shortcode des gewünschten Formulars hier rein kopieren.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "[contact-form-7 id=\"... ]",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_69da92b3ed48c": {
                     "key": "layout_69da92b3ed48c",
                     "name": "image",
@@ -176,7 +207,7 @@
                             "required": 1,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "50",
                                 "class": "",
                                 "id": ""
                             },
@@ -191,6 +222,52 @@
                             "mime_types": "",
                             "allow_in_bindings": 0,
                             "preview_size": "medium"
+                        },
+                        {
+                            "key": "field_6ae84e37943f5",
+                            "label": "Bild Optionen",
+                            "name": "image_options",
+                            "aria-label": "",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_6ae84e52943f6",
+                                    "label": "Bildformat",
+                                    "name": "image_aspect_ratio",
+                                    "aria-label": "",
+                                    "type": "radio",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "20_9": "20_9 (Cinemascope)",
+                                        "16_9": "16:9 (TV)",
+                                        "4_3": "4:3 (80er TV)",
+                                        "1_1": "Original"
+                                    },
+                                    "default_value": "20_9",
+                                    "return_format": "value",
+                                    "allow_null": 0,
+                                    "other_choice": 0,
+                                    "allow_in_bindings": 0,
+                                    "layout": "vertical",
+                                    "save_other_choice": 0
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -349,6 +426,24 @@
                     "label": "Benefits",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_6ae869c83d746",
+                            "label": "Info zu Icons",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Icons hier suchen: https:\/\/hugeicons.com\/ (für das Benefits Modul 1.5 Strichstärke und 44px Größe wählen).",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        },
                         {
                             "key": "field_69da60ed37b28",
                             "label": "Inhalt",
@@ -524,7 +619,12 @@
     "instruction_placement": "label",
     "hide_on_screen": [
         "the_content",
-        "excerpt"
+        "excerpt",
+        "discussion",
+        "comments",
+        "featured_image",
+        "categories",
+        "tags"
     ],
     "active": false,
     "description": "",
@@ -532,5 +632,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1793289940
+    "modified": 1793619125
 }

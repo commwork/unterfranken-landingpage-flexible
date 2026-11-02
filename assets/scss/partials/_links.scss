@@ -2,8 +2,8 @@
 @use "2-mixins" as *;
 
 // Skip link (WCAG 2.4.1, 2.4.11 – high z-index so focus not obscured)
-.skip-link {
-    position: absolute;
+a.skip-link {
+    position: fixed;
     left: -9999px;
     z-index: 99999;
     padding: 1rem 1.5rem;
@@ -12,6 +12,12 @@
     font-weight: 600;
     text-decoration: none;
     border-radius: var(--radius-m);
+
+    &:hover,
+    &:focus {
+        color: $white;
+        text-decoration: none;
+    }
 
     &:focus {
         left: var(--spacing-md);
@@ -26,7 +32,7 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 [tabindex]:not([tabindex="-1"]):focus-visible {
-    outline: 3px solid $black;
+    outline: 3px solid $secondary;
     outline-offset: 3px;
 }
 

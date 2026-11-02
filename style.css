@@ -272,8 +272,8 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: uflp
 */
-.skip-link {
-  position: absolute;
+a.skip-link {
+  position: fixed;
   left: -9999px;
   z-index: 99999;
   padding: 1rem 1.5rem;
@@ -283,7 +283,11 @@ Text Domain: uflp
   text-decoration: none;
   border-radius: var(--radius-m);
 }
-.skip-link:focus {
+a.skip-link:hover, a.skip-link:focus {
+  color: #ffffff;
+  text-decoration: none;
+}
+a.skip-link:focus {
   left: var(--spacing-md);
   top: var(--spacing-md);
 }
@@ -294,7 +298,7 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 [tabindex]:not([tabindex="-1"]):focus-visible {
-  outline: 3px solid #000000;
+  outline: 3px solid #540000;
   outline-offset: 3px;
 }
 
@@ -595,33 +599,6 @@ strong {
 .editor ol {
   margin-bottom: var(--spacing-sm);
 }
-.entry ul,
-.editor ul {
-  list-style: none;
-  padding-left: 0;
-  position: relative;
-}
-.entry ul li,
-.editor ul li {
-  position: relative;
-  padding-left: 1.2em;
-}
-.entry ul li::before,
-.editor ul li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.65em;
-  display: block;
-  width: 0.5em;
-  height: 0.5em;
-  border-radius: 50%;
-  background-color: #540000;
-}
-.entry ul li + li,
-.editor ul li + li {
-  margin-top: var(--spacing-s);
-}
 
 /**!
 Theme Name: Unterfranken Landingpage
@@ -902,6 +879,39 @@ Text Domain: uflp
 }
 
 /* images */
+.img-wrap-20-9 {
+  width: 100%;
+  aspect-ratio: 20/9;
+  overflow: hidden;
+}
+.img-wrap-20-9 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-wrap-16-9 {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.img-wrap-16-9 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-wrap-4-3 {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+.img-wrap-4-3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .img-wrap-1-1 {
   width: 100%;
   aspect-ratio: 1/1;
@@ -1654,13 +1664,179 @@ body.logged-in .section[data-block-index]::before {
   z-index: 5;
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-m);
-  background-color: #373737;
-  color: #ffffff;
+  background-color: #eeee89;
+  color: #000000;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 1.2;
   pointer-events: none;
+}
+
+/**
+ * Frontend admin UI (logged-in only).
+ * Markup: footer.php · behavior: assets/js/app.js
+ */
+.section-admin-toggle {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  bottom: 10px;
+  right: 10px;
+  left: auto;
+  line-height: 1;
+  z-index: 9999;
+  width: auto;
+  color: #fff;
+  background: #23282d !important;
+  border-radius: 8px !important;
+  padding: 0.4rem 0.4rem !important;
+}
+
+.btn-toggle-headline-view {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1.2;
+  padding: 0.35rem 0.55rem;
+  border-radius: 3px;
+  font-size: 14px !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.btn-toggle-headline-view[aria-pressed=true] {
+  background: #484848;
+  color: #fff;
+}
+
+body.is-headline-view-active h1::before {
+  content: "H1";
+  display: inline-block;
+  position: relative;
+  top: -0.3em;
+  margin-right: 8px;
+  padding: 0.5rem 0.7rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+  color: #fff;
+  background: #d3005f;
+  border-radius: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+body.is-headline-view-active h2::before {
+  content: "H2";
+  display: inline-block;
+  position: relative;
+  top: -0.3em;
+  margin-right: 8px;
+  padding: 0.5rem 0.7rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+  color: #fff;
+  background: #d35400;
+  border-radius: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+body.is-headline-view-active h3::before {
+  content: "H3";
+  display: inline-block;
+  position: relative;
+  top: -0.3em;
+  margin-right: 8px;
+  padding: 0.5rem 0.7rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+  color: #fff;
+  background: #b7950b;
+  border-radius: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+body.is-headline-view-active h4::before {
+  content: "H4";
+  display: inline-block;
+  position: relative;
+  top: -0.3em;
+  margin-right: 8px;
+  padding: 0.5rem 0.7rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+  color: #fff;
+  background: #1e8449;
+  border-radius: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+body.is-headline-view-active h5::before {
+  content: "H5";
+  display: inline-block;
+  position: relative;
+  top: -0.3em;
+  margin-right: 8px;
+  padding: 0.5rem 0.7rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+  color: #fff;
+  background: #2471a3;
+  border-radius: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+body.is-headline-view-active h6::before {
+  content: "H6";
+  display: inline-block;
+  position: relative;
+  top: -0.3em;
+  margin-right: 8px;
+  padding: 0.5rem 0.7rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  vertical-align: middle;
+  color: #fff;
+  background: #6c3483;
+  border-radius: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+#wpadminbar h1::before, #wpadminbar h2::before, #wpadminbar h3::before, #wpadminbar h4::before, #wpadminbar h5::before, #wpadminbar h6::before,
+.section-admin-toggle h1::before,
+.section-admin-toggle h2::before,
+.section-admin-toggle h3::before,
+.section-admin-toggle h4::before,
+.section-admin-toggle h5::before,
+.section-admin-toggle h6::before {
+  content: none !important;
 }
 
 /**!
@@ -1864,9 +2040,14 @@ Text Domain: uflp
  */
 .module-benefits {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(max(220px, (100% - 2 * var(--spacing-md)) / 3), 1fr));
+  grid-template-columns: 1fr;
   gap: var(--spacing-md);
   width: 100%;
+}
+@media (min-width: 768px) {
+  .module-benefits {
+    grid-template-columns: repeat(auto-fit, minmax(max(220px, (100% - 2 * var(--spacing-md)) / 3), 1fr));
+  }
 }
 
 .module-benefits-item {
@@ -1885,8 +2066,8 @@ Text Domain: uflp
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
   flex-shrink: 0;
   margin-bottom: var(--spacing-s);
 }

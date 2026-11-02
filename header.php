@@ -18,6 +18,8 @@
 
 <body <?php body_class(); ?>>
 
+<a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+
 <header class="header-section" role="banner">
     <div class="logo">
         <?php if ( ! is_front_page() ) : ?>

@@ -18,6 +18,16 @@
 	</div>
 </footer>
 
+<?php if ( is_user_logged_in() ) : ?>
+	<div class="section-admin-toggle" id="section-admin-toggle" aria-label="<?php esc_attr_e( 'Überschriften anzeigen', 'uflp' ); ?>">
+		<div class="toggle-headline-view">
+			<button type="button" class="btn-toggle-headline-view" aria-pressed="false">
+				Headlines überprüfen
+			</button>
+		</div>
+	</div>
+<?php endif; ?>
+
 <?php wp_footer(); ?>
 
 </body>

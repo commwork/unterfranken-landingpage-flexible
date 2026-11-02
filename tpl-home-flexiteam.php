@@ -4,18 +4,17 @@
      */
     get_header();
 
-    $flexiteam_header = get_field( 'flexiteam_header' ) ?: array();
-    $header_headline = $flexiteam_header['headline'] ?? '';
-    $header_text = $flexiteam_header['text'] ?? '';
-    $header_button = $flexiteam_header['button'] ?? null;
-    $header_image = $flexiteam_header['image'] ?? null;
+    $header_headline = get_field( 'headline' ) ?: '';
+    $header_text     = get_field( 'text' ) ?: '';
+    $header_button   = get_field( 'button' );
+    $header_image    = get_field( 'image' );
 ?>
 			
 <main id="main-content" tabindex="-1">
     <section class="section home-section-1">
         <div class="container">
             <div class="row g-5 flex-center-x">
-                <div class="col-12 col-xl-5 content-box">      
+                <div class="col-12 col-xl-5 content-box" data-aos="fade-up">      
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/FYH_Logo_Weiß_Rot.svg" alt="" class="fyh-signage">
                 
                     <?php if ( $header_headline !== '' ) : ?>
@@ -47,7 +46,7 @@
                 </div>
 
                 <?php if ( ! empty( $header_image['url'] ) ) : ?>
-                <div class="col-12 col-xl-6">
+                <div class="col-12 col-xl-6" data-aos="fade-up" data-aos-delay="100">
                     <figure class="img-wrap-1-1">
                         <img src="<?php echo esc_url( $header_image['url'] ); ?>" alt="<?php echo esc_attr( $header_image['alt'] ?? '' ); ?>" class="radius-m">
                     </figure>
@@ -67,6 +66,13 @@
                 $section_classes[] = 'section-bg-tertiary-light';
             }
 
+            $xalign_classes = array(
+                'top'    => 'align-items-start',
+                'center' => 'align-items-center',
+            );
+            $xalign          = $block_options['block_options_xalign'] ?? '';
+            $row_align_class = $xalign_classes[ $xalign ] ?? 'align-items-start';
+
             $block_index = get_row_index();
             ?>
             <section
@@ -76,8 +82,9 @@
                 <?php endif; ?>
             >
                 <div class="container">
-                    <div class="row g-5 flex-center-x">
+                    <div class="row g-5 <?php echo esc_attr( $row_align_class ); ?>">
                         <?php if ( have_rows( 'columns' ) ) : ?>
+                            <?php $column_index = 0; ?>
                             <?php while ( have_rows( 'columns' ) ) : the_row(); ?>
                                 <?php if ( 'column' !== get_row_layout() ) { continue; } ?>
                                 <?php
@@ -92,8 +99,11 @@
                                 } elseif ( '4' === $column_width ) {
                                     $column_classes[] = 'col-xl-4';
                                 }
+
+                                $aos_delay = $column_index * 100;
+                                $column_index++;
                                 ?>
-                                <div class="<?php echo esc_attr( implode( ' ', $column_classes ) ); ?>">
+                                <div class="<?php echo esc_attr( implode( ' ', $column_classes ) ); ?>" data-aos="fade-up"<?php if ( $aos_delay > 0 && $aos_delay <= 200 ) : ?> data-aos-delay="<?php echo esc_attr( (string) $aos_delay ); ?>"<?php endif; ?>>
                                     <?php if ( have_rows( 'modules_content' ) ) : ?>
                                         <?php
                                         $module_map = array(
@@ -104,6 +114,7 @@
                                             'accordion'       => 'accordion',
                                             'links'           => 'links',
                                             'benefits'        => 'benefits',
+                                            'form'            => 'form',
                                         );
                                         ?>
                                         <?php while ( have_rows( 'modules_content' ) ) : the_row(); ?>
