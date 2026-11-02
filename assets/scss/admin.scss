@@ -285,6 +285,13 @@
 	}
 }
 
+.acf-fc-layout-order {
+    border: 1px solid #eeee89 !important;
+    background: #eeee89 !important;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    color: #000000 !important;
+}
+
 .acf-field {
 	&[data-name="blocks"] {
 		> .acf-input {
@@ -293,11 +300,4 @@
 			border-radius: 12px;
 		}
 	}
-}
-
-.acf-fc-layout-order {
-    border: 1px solid #eeee89 !important;
-    background: #eeee89 !important;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    color: #000000 !important;
 }
