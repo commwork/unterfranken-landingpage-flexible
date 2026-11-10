@@ -73,7 +73,10 @@ a {
         mask-repeat: no-repeat;
         -webkit-mask-position: center;
         mask-position: center;
+        position: relative;
+        top: 0;
     }
+
     
     &.btn-primary {
         display: inline-flex;
