@@ -40,7 +40,7 @@
     }
 
     if ( $logo_url === '' ) {
-        $logo_url = get_template_directory_uri() . '/assets/images/logos/logo-awo-care.png';
+        $logo_url = get_template_directory_uri() . '/assets/images/no-logo.svg';
     }
 
     $logo_alt = get_bloginfo( 'name' );
