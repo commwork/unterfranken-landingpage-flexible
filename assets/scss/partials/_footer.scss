@@ -4,18 +4,14 @@
 
 .footer-nav {
     display: flex;
-    flex-direction: row;
-    gap: var(--spacing-l);
-    margin-bottom: var(--spacing-md);
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: var(--spacing-xl);
 
     a {
         display: inline-block;
-        line-height: 1.5;
-        font-weight: 400;
         color: $secondary;
         text-decoration: none;
-        min-height: 44px;
-        padding: 0.5rem 0;
 
         &:hover {
             text-decoration: underline;
