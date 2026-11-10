@@ -149,6 +149,29 @@ add_filter( 'wpcf7_autop_or_not', function( $autop, $options ) {
     return $autop;
 }, 10, 2 );
 
+/**
+ * /////////////////////////////////////////////////
+ *  ACF options
+ * /////////////////////////////////////////////////
+ */
+function uflp_register_options_pages() {
+	if ( ! function_exists( 'acf_add_options_page' ) ) {
+		return;
+	}
+    // Top-level: UFLP (parent for most sub-pages; shows its own fields).
+	acf_add_options_page( array(
+		'page_title'      => 'Optionen',
+		'menu_title'      => 'Optionen',
+		'menu_slug'       => 'uflp',
+		'capability'      => 'edit_posts',
+		'redirect'        => false,
+		'icon_url'        => 'dashicons-star-filled',
+		'update_button'   => 'Speichern',
+		'updated_message' => 'Optionen gespeichert',
+		'autoload'        => false,
+	) );
+}
+add_action( 'acf/init', 'uflp_register_options_pages' );
 
 /**
  * /////////////////////////////////////////////////
