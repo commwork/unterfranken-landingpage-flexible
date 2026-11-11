@@ -345,6 +345,7 @@ a:hover {
   background-color: #E3001B;
   color: #ffffff;
   font-weight: 600;
+  font-size: 1.4rem;
   border-color: #E3001B;
   padding: 12px 20px;
   min-height: 44px;
@@ -494,12 +495,12 @@ h4,
 
 .lead,
 .lead p {
-  font-size: 1.5rem;
+  font-size: 1.85rem;
   line-height: 1.4;
 }
 
 p, .p, ul, ol {
-  font-size: 1.125rem;
+  font-size: 1.4rem;
   line-height: 1.65;
 }
 
@@ -1053,7 +1054,7 @@ Text Domain: uflp
 }
 
 .copyright {
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 /**!
@@ -1963,7 +1964,7 @@ Text Domain: uflp
   transition: color 0.2s;
   color: #540000;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.85rem;
 }
 .accordion-item-title:hover {
   color: #E3001B;

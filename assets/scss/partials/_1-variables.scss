@@ -1,5 +1,19 @@
-// Fonts
-$font : "FagoCo", sans-serif;
+// Typography
+$font: "FagoCo", sans-serif;
+
+$font-size-h1: 3.75rem; // 60px
+$font-size-h2: 3rem; // 48px
+$font-size-h3: 1.875rem; // 30px
+$font-size-h4: 1.5rem; // 24px
+$font-size-lead: 1.85rem; // 24px
+$font-size-p: 1.4rem; // 18px
+$font-size-p-small: 1.15rem; // 16px
+$font-size-subheadline: 1.25rem; // 16px
+$font-size-small: 0.875rem; // 14px
+
+// Breakpoints
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 480px;
 
 // Colors
 $primary : #E3001B;
@@ -27,7 +41,7 @@ $border-width-l : 2px;
 	}
 }
 
-// Spacing
+// Spacings
 :root {
 	--spacing-xs: 6px;
 	--spacing-s: 12px;
