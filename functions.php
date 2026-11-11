@@ -175,6 +175,30 @@ add_action( 'acf/init', 'uflp_register_options_pages' );
 
 /**
  * /////////////////////////////////////////////////
+ *  Replace UpdraftPlus custom PNG menu icon with a Dashicon.
+ * /////////////////////////////////////////////////
+ */
+
+function uflp_updraftplus_menu_icon() {
+	global $menu;
+
+	if ( empty( $menu ) || ! is_array( $menu ) ) {
+		return;
+	}
+
+	foreach ( $menu as $key => $item ) {
+		if ( empty( $item[2] ) || 'options-general.php?page=updraftplus' !== $item[2] ) {
+			continue;
+		}
+
+		$menu[ $key ][6] = 'dashicons-update';
+		break;
+	}
+}
+add_action( 'admin_menu', 'uflp_updraftplus_menu_icon', 999 );
+
+/**
+ * /////////////////////////////////////////////////
  *  Minify HTML output (safe, conservative)
  * /////////////////////////////////////////////////
  */
