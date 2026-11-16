@@ -56,6 +56,112 @@
         </div>
     </section>
 
+    <section class="section home-section-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 content-box" data-aos="fade-up">
+                    <h2>Mobilitätszulagen berechnen</h2>
+                    <p>Die Beträge gelten bei einer Vollzeit von 38,5 Wochenstunden. Zulagen mit Teilzeitkürzung werden anteilig berechnet: Betrag × Wochenstunden ÷ 38,5. Eintragbar sind 30 bis 38,5 Wochenstunden.</p>
+
+                    <form class="mobility-calculator" id="mobility-calculator">
+                        <div class="mobility-calculator-hours">
+                            <label for="mobility-hours">Wochenstunden</label>
+                            <input id="mobility-hours" name="hours" type="text" inputmode="decimal" autocomplete="off" placeholder="30 bis 38,5" aria-describedby="mobility-hours-hint">
+                            <small id="mobility-hours-hint">Mindestens 30, höchstens 38,5 Stunden.</small>
+                        </div>
+
+                        <fieldset>
+                            <legend>Schichtmodell</legend>
+                            <label class="mobility-option">
+                                <input type="radio" name="schicht" value="none" checked>
+                                <span><strong>Kein Schichtmodell</strong></span>
+                            </label>
+                            <label class="mobility-option">
+                                <input type="radio" name="schicht" value="1" data-amount="100" data-prorate="0" data-label="Zulage Einsatz">
+                                <span>
+                                    <strong>1 Schicht</strong>
+                                    <p class="calc-entry-description">Zulage Einsatz, 100,00 €, keine Kürzung bei Teilzeit</p>
+                                </span>
+                            </label>
+                            <label class="mobility-option">
+                                <input type="radio" name="schicht" value="2-mit" data-amount="50" data-prorate="1" data-label="Zulage Mobil Kombi, 2 Schichten mit Wunsch-Dienstplan">
+                                <span>
+                                    <strong>2 Schichten mit Wunsch-Dienstplan</strong>
+                                    <p class="calc-entry-description">50,00 € bei Vollzeit, Kürzung bei Teilzeit</p>
+                                </span>
+                            </label>
+                            <label class="mobility-option">
+                                <input type="radio" name="schicht" value="2-ohne" data-amount="75" data-prorate="1" data-label="Zulage Mobil Kombi, 2 Schichten ohne Wunsch-Dienstplan">
+                                <span>
+                                    <strong>2 Schichten ohne Wunsch-Dienstplan</strong>
+                                    <p class="calc-entry-description">75,00 € bei Vollzeit, Kürzung bei Teilzeit</p>
+                                </span>
+                            </label>
+                            <label class="mobility-option">
+                                <input type="radio" name="schicht" value="3-mit" data-amount="100" data-prorate="1" data-label="Zulage Mobil Kombi, 3 Schichten mit Wunsch-Dienstplan">
+                                <span>
+                                    <strong>3 Schichten mit Wunsch-Dienstplan</strong>
+                                    <p class="calc-entry-description">100,00 € bei Vollzeit, Kürzung bei Teilzeit</p>
+                                </span>
+                            </label>
+                            <label class="mobility-option">
+                                <input type="radio" name="schicht" value="3-ohne" data-amount="125" data-prorate="1" data-label="Zulage Mobil Kombi, 3 Schichten ohne Wunsch-Dienstplan">
+                                <span>
+                                    <strong>3 Schichten ohne Wunsch-Dienstplan</strong>
+                                    <p class="calc-entry-description">125,00 € bei Vollzeit, Kürzung bei Teilzeit</p>
+                                </span>
+                            </label>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Wochenende</legend>
+                            <label class="mobility-option">
+                                <input type="radio" name="wochenende" value="none" checked>
+                                <span><strong>Kein Wochenendeinsatz</strong></span>
+                            </label>
+                            <label class="mobility-option">
+                                <input type="radio" name="wochenende" value="1" data-amount="25" data-prorate="1" data-label="Zulage Mobil Wochenende (1× im Monat)">
+                                <span>
+                                    <strong>1 Wochenende im Monat</strong>
+                                    <p class="calc-entry-description">25,00 € bei Vollzeit, Kürzung bei Teilzeit</p>
+                                </span>
+                            </label>
+                            <label class="mobility-option">
+                                <input type="radio" name="wochenende" value="2" data-amount="50" data-prorate="1" data-label="Zulage Mobil Wochenende (mindestens 2× im Monat)">
+                                <span>
+                                    <strong>Mindestens 2 Wochenenden im Monat</strong>
+                                    <p class="calc-entry-description">50,00 € bei Vollzeit, Kürzung bei Teilzeit</p>
+                                </span>
+                            </label>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Weitere Zulagen</legend>
+                            <label class="mobility-option">
+                                <input type="checkbox" name="feiertag" data-amount="25" data-prorate="1" data-label="Zulage Mobil Feiertag">
+                                <span>
+                                    <strong>Arbeit an Feiertagen</strong>
+                                    <p class="calc-entry-description">25,00 € bei Vollzeit, Kürzung bei Teilzeit</p>
+                                </span>
+                            </label>
+                            <label class="mobility-option">
+                                <input type="checkbox" name="mobilitaet" data-amount="400" data-prorate="1" data-label="Zulage Mobilitätsteam">
+                                <span>
+                                    <strong>Mobilitätszulage statt Dienstwagen</strong>
+                                    <p class="calc-entry-description">400,00 € bei Vollzeit, Kürzung bei Teilzeit. Ein Dienstwagen ist ab 30 Wochenstunden und bei Einsatz in allen Einrichtungen der Region möglich. Wird keiner gewählt, wird die Mobilitätszulage gezahlt.</p>
+                                </span>
+                            </label>
+                        </fieldset>
+
+                        <button type="submit" class="btn btn-secondary">Berechnen</button>
+
+                        <div class="mobility-calculator-result" aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <?php if ( have_rows( 'blocks' ) ) : ?>
         <?php while ( have_rows( 'blocks' ) ) : the_row(); ?>
             <?php if ( 'block' !== get_row_layout() ) { continue; } ?>

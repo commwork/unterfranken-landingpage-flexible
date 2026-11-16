@@ -87,4 +87,76 @@ document.addEventListener('DOMContentLoaded', function() {
             setHeadlineView(!document.body.classList.contains('is-headline-view-active'));
         });
     }
+
+    const mobilityForm = document.getElementById('mobility-calculator');
+    if (mobilityForm) {
+        const MIN_HOURS = 30;
+        const FULL_TIME_HOURS = 38.5;
+        const hoursInput = mobilityForm.querySelector('#mobility-hours');
+        const result = mobilityForm.querySelector('.mobility-calculator-result');
+        const euro = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
+
+        const parseHours = function(value) {
+            const normalized = String(value).trim().replace(',', '.');
+            if (normalized === '') {
+                return null;
+            }
+            const hours = Number(normalized);
+            if (!Number.isFinite(hours) || hours < 0) {
+                return null;
+            }
+            return hours;
+        };
+
+        const roundCents = function(amount) {
+            return Math.round((amount + Number.EPSILON) * 100) / 100;
+        };
+
+        const allowanceAmount = function(input, hours) {
+            const fullAmount = Number(input.dataset.amount);
+            if (input.dataset.prorate !== '1') {
+                return fullAmount;
+            }
+            const countedHours = Math.min(hours, FULL_TIME_HOURS);
+            return roundCents(fullAmount * countedHours / FULL_TIME_HOURS);
+        };
+
+        const selectedAllowances = function() {
+            return Array.from(mobilityForm.querySelectorAll('input[data-amount]')).filter(function(input) {
+                return input.checked;
+            });
+        };
+
+        const render = function() {
+            const hours = parseHours(hoursInput.value);
+            if (hours === null) {
+                result.innerHTML = '<p>Bitte die Wochenstunden eintragen.</p>';
+                return;
+            }
+            if (hours < MIN_HOURS || hours > FULL_TIME_HOURS) {
+                result.innerHTML = '<p>Bitte eine Stundenzahl zwischen 30 und 38,5 eintragen.</p>';
+                return;
+            }
+
+            const items = selectedAllowances();
+            if (!items.length) {
+                result.innerHTML = '<p>Keine Zulage ausgewählt.</p>';
+                return;
+            }
+
+            let total = 0;
+            const rows = items.map(function(input) {
+                const amount = allowanceAmount(input, hours);
+                total += amount;
+                return '<li><span>' + input.dataset.label + '</span><span>' + euro.format(amount) + '</span></li>';
+            }).join('');
+
+            result.innerHTML = '<ul>' + rows + '</ul><p class="mobility-calculator-total"><span>Summe</span><span>' + euro.format(roundCents(total)) + '</span></p>';
+        };
+
+        mobilityForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            render();
+        });
+    }
 });
