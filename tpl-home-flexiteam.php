@@ -56,11 +56,12 @@
         </div>
     </section>
 
-    <section class="section home-section-2">
+    <section class="section home-section-2" style="background-color:rgb(249, 241, 193);">
         <div class="container">
             <div class="row">
                 <div class="col-12 content-box" data-aos="fade-up">
                     <h2>Mobilitätszulagen berechnen</h2>
+                    <p style="color: red;">Testversion. Das Design muss noch erstellt werden.</p>
                     <p>Die Beträge gelten bei einer Vollzeit von 38,5 Wochenstunden. Zulagen mit Teilzeitkürzung werden anteilig berechnet: Betrag × Wochenstunden ÷ 38,5. Eintragbar sind 30 bis 38,5 Wochenstunden.</p>
 
                     <form class="mobility-calculator" id="mobility-calculator">
