@@ -73,8 +73,11 @@
                         <fieldset>
                             <legend>Schichtmodell</legend>
                             <label class="mobility-option">
-                                <input type="radio" name="schicht" value="none" checked>
-                                <span><strong>Kein Schichtmodell</strong></span>
+                                <input type="radio" name="schicht" value="bereitschaft" data-amount="100" data-prorate="0" data-label="Zulage Einsatz">
+                                <span>
+                                    <strong>Bereitschaft im Mobilitätsteam zu arbeiten</strong>
+                                    <p class="calc-entry-description">Zulage Bereitschaft, 100,00 €</p>
+                                </span>
                             </label>
                             <label class="mobility-option">
                                 <input type="radio" name="schicht" value="1" data-amount="100" data-prorate="0" data-label="Zulage Einsatz">
